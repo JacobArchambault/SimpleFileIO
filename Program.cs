@@ -1,17 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using static System.Console;
+using static System.IO.File;
 
 namespace SimpleFileIO
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            Console.WriteLine("***** Simple IO with the File Type *****\n");
+            WriteLine("***** Simple IO with the File Type *****\n");
             try
             {
                 string[] myTasks = {
@@ -19,19 +16,19 @@ namespace SimpleFileIO
                   "Call Mom and Dad", "Play Xbox 360"};
 
                 // Write out all data to file on C drive.
-                File.WriteAllLines(@"tasks.txt", myTasks);
+                WriteAllLines(@"tasks.txt", myTasks);
 
                 // Read it all back and print out.
-                foreach (string task in File.ReadAllLines(@"tasks.txt"))
+                foreach (string task in ReadAllLines(@"tasks.txt"))
                 {
-                    Console.WriteLine("TODO: {0}", task);
+                    WriteLine($"TODO: {task}");
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                WriteLine(ex.Message);
             }
-            Console.ReadLine();
+            ReadLine();
         }
     }
 
